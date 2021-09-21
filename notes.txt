@@ -15,3 +15,266 @@ It provides an event-driven, non-blocking (asynchronous) I/O and cross-platform 
 It is used to develop I/O intensive web applications like video streaming sites, single-page applications, and other web applications.
 
 Node.js official website: https://nodejs.org
+
+
+Verify Installation
+Once you install Node.js on your computer, you can verify it by opening the command prompt and typing node -v. If Node.js is installed successfully then it will display the version of the Node.js installed on your machine, as shown below.
+
+Node.js Console
+Node.js Console:
+Node.js comes with a virtual environment called REPL (aka Node shell). REPL stands for Read-Eval-Print-Loop. It is a quick and easy way to test simple Node.js/JavaScript code.
+
+To launch the REPL (Node shell), open a command prompt (in Windows) or terminal (in Mac or UNIX/Linux) and type node as shown below. It will change the prompt to > in Windows and MAC.
+
+Node.js/JavaScript expression:
+---------------------------------------------------------------------------------------------------------------------
+
+> 10 + 20 
+30
+------------------------------------------------------------------------------------------------------------------------
+
+> "Hello" + " World" 
+Hello World
+
+------------------------------------------------------------------------------------------------------------------------
+> var x = 10, y = 20; 
+> x + y 
+30
+---------------------------------------------------------------------------------------------------------------------
+
+External JavaScript file
+external JavaScript file by writing node <fileName> command. 
+
+node example.js
+---------------------------------------------------------------------------------------------------------------------
+
+ 
+console.log("Hello from Server side JS...!");
+ 
+document.write("Hello from Client side JS...!");  
+ 
+// Error
+document.write("Hello from Client side JS...!");
+^
+ReferenceError: document is not defined
+ 
+ 
+
+---------------------------------------------------------------------------------------------------------------------
+
+example.html
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log("Hello from Client side JS...!");
+      document.write("Hello from Client side JS...!");
+    </script>
+  </body>
+</html>
+ 
+
+ node node-example.js
+Node.js Basics
+Primitive Types and Non-Primitive Types:
+Node.js includes the following primitive types:
+
+String = char
+Number = long, float, double
+Boolean
+Undefined
+Null
+Array
+Object
+
+Loose Typing
+JavaScript in Node.js supports loose typing like the browser's JavaScript. 
+Use the var keyword to declare a variable of any type.
+
+Object Literal
+
+Object literal syntax is the same as the browser's JavaScript.
+---------------------------------------------------------------------------------------------------------------------
+var obj = {
+    name: 'Ryan Dahl',
+    language: 'Node.js'
+}
+---------------------------------------------------------------------------------------------------------------------
+
+Functions   
+
+A function can have attributes and properties also. It can be treated like a class in JavaScript.
+
+Example: Function
+---------------------------------------------------------------------------------------------------------------------
+
+function Display(x) { 
+    console.log(x);
+}
+Display(100);
+---------------------------------------------------------------------------------------------------------------------
+
+Buffer
+
+Node.js includes an additional data type called Buffer (not available in browser's JavaScript). 
+Buffer is mainly used to store binary data while reading from a file or receiving packets over the network.
+REPL commands.
+
+The following table lists important REPL commands.
+REPL stands for Read Eval Print Loop and it represents a computer environment like a Windows console or Unix/Linux shell where a command is entered and the system responds with an output in an interactive mode. Node.js or Node comes bundled with a REPL environment. It performs the following tasks −
+Read − Reads user's input, parses the input into JavaScript data-structure, and stores it in memory.
+Eval − Takes and evaluates the data structure.
+Print − Prints the result.
+Loop − Loops the above command until the user presses ctrl-c twice.
+The REPL feature of Node is very useful in experimenting with Node.js codes and to debug JavaScript codes.
+To simplify your learning, we have set up an easy to use Node.js REPL environment online, where you can practice Node.js syntax − Launch Node.js REPL Terminal 
+Starting REPL
+REPL can be started by simply running node on shell/console without any arguments as follows.
+$ node
+
+You will see the REPL Command prompt > where you can type any Node.js command −
+$ node
+>
+
+Simple Expression
+Let's try a simple mathematics at the Node.js REPL command prompt −
+$ node
+> 1 + 3
+4
+> 1 + ( 2 * 3 ) - 4
+3
+>
+
+Use Variables
+You can make use of variables to store values and print later like any conventional script. If var keyword is not used, then the value is stored in the variable and printed. Whereas if var keyword is used, then the value is stored but not printed. You can print variables using console.log().
+$ node
+> x = 10
+10
+> var y = 10
+undefined
+> x + y
+20
+> console.log("Hello World")
+Hello World
+undefined
+
+Multiline Expression
+Node REPL supports multiline expressions similar to JavaScript. Let's check the following do-while loop in action −
+$ node
+> var x = 0
+undefined
+> do {
+   x++;
+  console.log("x: " + x);
+   } 
+while ( x < 5 );
+x: 1
+x: 2
+x: 3
+x: 4
+x: 5
+undefined
+>
+
+... comes automatically when you press Enter after the opening bracket. Node automatically checks the continuity of expressions.
+Underscore Variable
+You can use underscores (_) to get the last result −
+$ node
+> var x = 10
+undefined
+> var y = 20
+undefined
+> x + y
+30
+> var sum = _
+undefined
+> console.log(sum)
+30
+undefined
+>
+
+Stopping REPL
+As mentioned above, you will need to use ctrl-c twice to come out of Node.js REPL.
+$ node
+>
+(^C again to quit)
+>
+
+---------------------------------------------------------------------------------------------------------------------
+
+REPL Command	Description
+.help				Display help on all the commands
+tab Keys			Display the list of all commands.
+Up/Down Keys		See previous commands applied in REPL.
+.save filename		Save current Node REPL session to a file.
+.load filename		Load the specified file in the current Node REPL session.
+ctrl + c			Terminate the current command.
+ctrl + c (twice)		Exit from the REPL.
+ctrl + d			Exit from the REPL.
+.break			Exit from multiline expressions.
+.clear				Exit from multiline expressions.
+---------------------------------------------------------------------------------------------------------------------
+
+Process Object
+
+[1 UI: Data View: WindowObj ]    [2. Server: Data pro: ProcessObj ] [ 3. DB: Data sto :JSONObj ]
+
+Each Node.js script runs in a process. It includes a process object to get all the information about the current process of Node.js applications.
+
+The following example shows how to get process information in REPL using a process object.
+---------------------------------------------------------------------------------------------------------------------
+> process.execPath 
+'C:\\Program Files\\nodejs\\node.exe'
+> process.pid
+1652
+> process.cwd()
+'C:\\'
+---------------------------------------------------------------------------------------------------------------------
+Module : Groups of logic
+HTTPModule [ get() post() . . . ]
+RouterModule [ . . . ]
+Module in Node.js 
+“Module in Node.js is a simple or complex functionality organized in single or multiple JavaScript files which can be reused throughout the Node.js application.”
+
+Each module in Node.js has its own context, so it cannot interfere with other modules or pollute the global scope. Also, each module can be placed in a separate .js file under a separate folder.
+
+Node.js implements CommonJS modules standard  [ https://requirejs.org/docs/commonjs.html ]. CommonJS is a group of volunteers who define JavaScript standards for web-server, desktop, and console applications.
+
+Module Types
+
+Node.js includes three types of modules:
+
+Core Modules [ http ]
+Local Modules [ AppRoutingModule ]
+Third Party Modules [ ngTable module ]
+
+NodeJs Core Modules
+
+Node.js is a lightweight framework. The core modules include bare minimum functionalities of Node.js. These core modules are compiled into its binary distribution and loaded automatically when Node.js processes start. However, you need to import the core module first in order to use it in your application.
+
+The following table lists some of the important core modules in Node.js.
+
+
+Core Module
+Description
+http
+http module includes classes, methods and events to create Node.js http server.
+url
+The url module includes methods for URL resolution and parsing.
+querystring
+The querystring module includes methods to deal with query strings.
+path
+The path module includes methods to deal with file paths.
+fs
+fs module includes classes, methods, and events to work with file I/O.
+util
+The util module includes utility functions useful for programmers.
+
+
